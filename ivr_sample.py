@@ -65,13 +65,13 @@ def get_recording(url,uuid):
     f.write(resp.content)
     f.close()
 
-    sms_text = "RecFile https://recdemo.ap.ngrok.io/"+fname
+    sms_text = "RecFile https://rec_url.xxxx.jp/"+fname
     response_SMS = client_sms.send_message({'from': 'NexmoJapan', 'to': engineer, 'text': sms_text})
     
-    sms_text = "RecFile https://recdemo.ap.ngrok.io/"+fname
+    sms_text = "RecFile https://rec_url.xxxx.jp/"+fname
     response_SMS = client_sms.send_message({'from': 'NexmoJapan', 'to': sales_1, 'text': sms_text})
     
-    sms_text = "RecFile https://recdemo.ap.ngrok.io/"+fname
+    sms_text = "RecFile https://rec_url.xxxx.jp/"+fname
     response_SMS = client_sms.send_message({'from': 'NexmoJapan', 'to': sales_2, 'text': sms_text})
     
     return "ok"
@@ -132,7 +132,6 @@ def dtmfresponse():
 
         sms_text = "Hi Ryusuke, you have call from " + session['from'] + " on " + date
 
-#        response_SMS = client_sms.send_message({'from': 'NexmoJapan', 'to': "818022922956", 'text': sms_text})
 
         response_SMS = client_sms.send_message({'from': 'NexmoJapan', 'to': sales_1, 'text': sms_text})
 
@@ -149,7 +148,6 @@ def dtmfresponse():
                     "endpoint": [
                      {
                         "type": "phone",
-                        #"number": "817045621117"
                         "number": sales_1
                      }
                 ]
@@ -162,8 +160,6 @@ def dtmfresponse():
         return resp
     elif result == '2':
         sms_text = "Hi Miya, you have call from " + session['from'] + " on " + date
-
-#        response_SMS = client_sms.send_message({'from': 'NexmoJapan', 'to': "818022922956", 'text': sms_text})
 
         response_SMS = client_sms.send_message({'from': 'NexmoJapan', 'to': engineer, 'text': sms_text})
         logger.debug(response_SMS)
@@ -179,7 +175,6 @@ def dtmfresponse():
                 "endpoint": [
                     {
                         "type": "phone",
-                        # "number": "817045621117"
                         "number": engineer
                     }
                 ]
@@ -236,7 +231,7 @@ def usercallback():
 
         logger.debug('*******  Ryu did not answer  **********')
 
-        sms_text = "Hi Hiro, you have call from " + session['from'] + " on " + date
+        sms_text = "Hi Atsushi, you have call from " + session['from'] + " on " + date
 
         response_SMS = client_sms.send_message({'from': 'NexmoJapan', 'to': sales_2, 'text': sms_text})
         logger.debug(response_SMS)
@@ -264,7 +259,7 @@ def usercallback():
         return resp
     elif (callee == sales_1 or sales_2) and status in call_state:
 
-        logger.debug('*******  Ryu  or Hiro did not answer  **********')
+        logger.debug('*******  Ryu  or Atsushi did not answer  **********')
 
         ncco= [
                 {
