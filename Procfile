@@ -1,1 +1,1 @@
-web: gunicorn ivr-sample:app --log-file -
+web: gunicorn ivr_sample:app --log-file -
