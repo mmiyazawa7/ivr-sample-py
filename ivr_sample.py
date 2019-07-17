@@ -41,7 +41,7 @@ url = "https://api.nexmo.com/v1/calls"
 
 webhook_url = os.environ.get("WEBHOOK_URL")
 
-eb_port = os.environ.get("WEB_PORT")
+web_port = os.environ.get("WEB_PORT")
 
 virtual_number = os.environ.get("LVN")
 
