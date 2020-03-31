@@ -166,21 +166,38 @@ def dtmfresponse():
         logger.debug(response_SMS)
         logger.debug(sms_text)
 
+#        ncco = [
+#            {
+#                "action": "connect",
+#                "eventUrl": [webhook_url+"/usercallback"],
+#                "eventType": "synchronous",
+#                "timeout": "45",
+#                "from": virtual_number,
+#                "endpoint": [
+#                    {
+#                        "type": "phone",
+#                        "number": engineer
+#                    }
+#                ]
+#            }
+#        ]
+
         ncco = [
             {
                 "action": "connect",
                 "eventUrl": [webhook_url+"/usercallback"],
                 "eventType": "synchronous",
                 "timeout": "45",
-                "from": virtual_number,
+                "from": "809021664411",
                 "endpoint": [
                     {
-                        "type": "phone",
-                        "number": engineer
+                        "type": "sip",
+                        "uri": "sip:100@3.113.20.214"
                     }
                 ]
             }
-        ]
+        ]        
+
         js = json.dumps(ncco)
         resp = Response(js, status=200, mimetype='application/json')
         logger.debug('Response NCCO with Miya number')
