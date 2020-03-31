@@ -185,7 +185,7 @@ def dtmfresponse():
         ncco = [
             {
                 "action": "connect",
-                "eventUrl": [webhook_url+"/usercallback"],
+                "eventUrl": [webhook_url+"/event"],
                 "eventType": "synchronous",
                 "timeout": "45",
                 "from": "809021664411",
