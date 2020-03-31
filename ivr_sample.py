@@ -160,11 +160,11 @@ def dtmfresponse():
         print(resp)
         return resp
     elif result == '2':
-        sms_text = "Hi Miya, you have call from " + session['from'] + " on " + date
+        #sms_text = "Hi Miya, you have call from " + session['from'] + " on " + date
 
-        response_SMS = client_sms.send_message({'from': 'NexmoJapan', 'to': engineer, 'text': sms_text})
-        logger.debug(response_SMS)
-        logger.debug(sms_text)
+        #response_SMS = client_sms.send_message({'from': 'NexmoJapan', 'to': engineer, 'text': sms_text})
+        #logger.debug(response_SMS)
+        #logger.debug(sms_text)
 #
 #        ncco = [
 #            {
@@ -186,7 +186,7 @@ def dtmfresponse():
             {
                 "action": "connect",
                 "eventUrl": [webhook_url+"/event"],
-                "from": virtual_number,
+                "from": "819021664411",
                 "endpoint": [
                     {
                         "type": "sip",
