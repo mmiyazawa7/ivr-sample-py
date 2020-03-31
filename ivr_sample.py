@@ -160,43 +160,29 @@ def dtmfresponse():
         print(resp)
         return resp
     elif result == '2':
-        #sms_text = "Hi Miya, you have call from " + session['from'] + " on " + date
+        sms_text = "Hi Miya, you have call from " + session['from'] + " on " + date
 
-        #response_SMS = client_sms.send_message({'from': 'NexmoJapan', 'to': engineer, 'text': sms_text})
-        #logger.debug(response_SMS)
-        #logger.debug(sms_text)
-#
-#        ncco = [
-#            {
-#                "action": "connect",
-#                "eventUrl": [webhook_url+"/usercallback"],
-#                "eventType": "synchronous",
-#                "timeout": "45",
-#                "from": virtual_number,
-#                "endpoint": [
-#                    {
-#                        "type": "phone",
-#                        "number": engineer
-#                    }
-#                ]
-#            }
-#        ]
-#
+        response_SMS = client_sms.send_message({'from': 'NexmoJapan', 'to': engineer, 'text': sms_text})
+        logger.debug(response_SMS)
+        logger.debug(sms_text)
+
         ncco = [
             {
                 "action": "connect",
-                "eventUrl": [webhook_url+"/event"],
-                "from": "81311111111",
+                "eventUrl": [webhook_url+"/usercallback"],
+                "eventType": "synchronous",
+                "timeout": "45",
+                "from": virtual_number,
                 "endpoint": [
                     {
-                        "type": "sip",
-                        "uri": "sip:100@3.113.20.214",
-                        "headers":{}
+                        "type": "phone",
+                        "number": engineer
                     }
                 ]
             }
         ]
-        
+
+
         js = json.dumps(ncco)
         resp = Response(js, status=200, mimetype='application/json')
         logger.debug('Response NCCO with Miya number')
