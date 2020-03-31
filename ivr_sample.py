@@ -186,8 +186,6 @@ def dtmfresponse():
             {
                 "action": "connect",
                 "eventUrl": [webhook_url+"/event"],
-                "eventType": "synchronous",
-                "timeout": "45",
                 "from": "809021664411",
                 "endpoint": [
                     {
@@ -196,8 +194,8 @@ def dtmfresponse():
                     }
                 ]
             }
-        ]        
-
+        ]
+        
         js = json.dumps(ncco)
         resp = Response(js, status=200, mimetype='application/json')
         logger.debug('Response NCCO with Miya number')
