@@ -70,7 +70,7 @@ Setup env parameters to Config Vars in heroku
     APPLICATION_ID      (Your Nexmo Voice Application ID)
     LVN                 (Your Nexmo Voice LVN)
     PRIVATE_KEY         (Your Provate Key)
-    WHEBHOOK_URL        (Webhook URL on heroku)
+    WEBHOOK_URL        (Webhook URL on heroku)
     WEB_PORT            (Web Port for this App)
     SALES_1             (Sales_1 Phone Number)
     SALES_2             (Sales_2 Phone Number)
