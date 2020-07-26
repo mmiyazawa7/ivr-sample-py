@@ -57,7 +57,7 @@ Install Heroku CLI Tool
 Deploy this App to Heroku
 
     $ git clone https://github.com/mmiyazawa7/ivr-sample-py.git
-    $ heroku create
+    $ heroku create (your heroku app name)
     $ git push heroku master
     
 Setup env parameters to Config Vars in heroku
